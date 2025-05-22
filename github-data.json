@@ -1,0 +1,40 @@
+{
+    "id": "49883809336",
+    "type": "PushEvent",
+    "actor": {
+        "id": 212370265,
+        "login": "Artemka320",
+        "display_login": "Artemka320",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/Artemka320",
+        "avatar_url": "https://avatars.githubusercontent.com/u/212370265?"
+    },
+    "repo": {
+        "id": 986332936,
+        "name": "blackfoxesBR/repository1",
+        "url": "https://api.github.com/repos/blackfoxesBR/repository1"
+    },
+    "payload": {
+        "repository_id": 986332936,
+        "push_id": 24381643184,
+        "size": 1,
+        "distinct_size": 1,
+        "ref": "refs/heads/main",
+        "head": "45f593a7d3b9010b43db2e7efed7d48a6058d75d",
+        "before": "b5196f49583df92bfd1f737a05d8f1228c62969b",
+        "commits": [
+            {
+                "sha": "45f593a7d3b9010b43db2e7efed7d48a6058d75d",
+                "author": {
+                    "email": "vasili@MacBook-Pro-de-Pedro-2.local",
+                    "name": "Vasili"
+                },
+                "message": "Ola",
+                "distinct": true,
+                "url": "https://api.github.com/repos/blackfoxesBR/repository1/commits/45f593a7d3b9010b43db2e7efed7d48a6058d75d"
+            }
+        ]
+    },
+    "public": true,
+    "created_at": "2025-05-19T14:00:42Z"
+}
