@@ -12,7 +12,7 @@ import json
 from requests_sse import EventSource
 from datetime import datetime
 
-KAFKA_BROKER = "127.0.0.1:19092,127.0.0.1:29092,127.0.0.1:39092"
+KAFKA_BROKER = os.getenv("KAFKA_BROKER", "127.0.0.1:19092,127.0.0.1:29092,127.0.0.1:39092")
 WIKIPEDIA_SSE_URL = "https://stream.wikimedia.org/v2/stream/recentchange"
 
 
