@@ -28,7 +28,7 @@ class WikipediaStreamer:
             }
         )
         self.topic = self.app.topic(
-            name="wikipedia-changes",
+            name="wikipedia-edits",
             value_serializer="json",
         )
         print(f"Connected to Kafka broker at {KAFKA_BROKER}")

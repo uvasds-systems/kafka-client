@@ -15,19 +15,7 @@ def main():
     )
 
     with app.get_consumer() as consumer:
-        consumer.subscribe(["wikipedia-changes"])
-
-        # new = 0
-        # edit = 0
-        # delete = 0
-        # move = 0
-        # protect = 0
-        # unprotect = 0
-        # revert = 0
-        # upload = 0
-        # log = 0
-        # categorize = 0
-        # other = 0
+        consumer.subscribe(["wikipedia-edits"])
 
         while True:
             msg = consumer.poll(1)
@@ -41,14 +29,21 @@ def main():
                 value = json.loads(msg.value())
                 offset = msg.offset()
 
+                # get out the "type" key from the value
                 change_type = value.get("type")
-                # save these values to redis and use incr() to increment the value
-                redis_client = redis.Redis(host="localhost", port=6379, db=0)
-                redis_client.incr(change_type)
-                print(f"Type count: {redis_client.get(change_type).decode('utf8')}")
-                redis_client.close()
+                
+                # Only process if change_type is not None
+                if change_type is not None:
+                    # save these values to redis and use incr() to increment the value
+                    redis_client = redis.Redis(host="127.0.0.1", port=6379, db=0)
+                    redis_client.incr(change_type)
+                    # print(f"Type count: {redis_client.get(change_type).decode('utf8')}")
+                    redis_client.close()
 
-                print(f"{offset} {key} {change_type}")
+                    # print on the screen
+                    print(f"{offset} --> {change_type}")
+                else:
+                    print(f"{offset} {key} - No 'type' field in message")
                 # print(f"{offset} {key} {value}")
                 consumer.store_offsets(msg)
 
